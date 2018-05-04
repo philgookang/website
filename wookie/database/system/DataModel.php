@@ -25,15 +25,15 @@ class DataModel {
         $query .=	" ?, ?) ";
 
 		$created_date_time	= date('Y-m-d H:i:s');
-		$status				= 'A';
+		$status				= 1;
 
-		$params = array($fmt."ss");
+		$params = array($fmt."si");
         foreach($data_list as &$data) {
             $params[] = &$data;
         }
 		$params[] = &$created_date_time;
 		$params[] = &$status;
-        // echo $this->postman->sql( $query, $params );
+
         return $this->postman->execute( $query, $params, true );
     }
 
