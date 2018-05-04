@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label for="article-content">Content</label>
-                <textarea class="form-control" name="content" id="article-content" rows="20"><?php echo $article->getContent(True); ?></textarea>
+                <textarea class="form-control" name="content" id="article-content" rows="20"><?php echo htmlentities($article->getContent(True)); ?></textarea>
             </div>
             <!--/.form-group-->
         </div>
