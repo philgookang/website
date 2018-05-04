@@ -11,6 +11,8 @@ class ArticleM extends BusinessModel {
     public $release_date_time       = null;
     public $created_date_time       = null;
 
+    public $search_text             = null;
+
     // help to create quick objects
     public static function new( $data = array() ) {
         // create new object
@@ -45,6 +47,8 @@ class ArticleM extends BusinessModel {
     public function setCreatedDateTime( $created_date_time ) { $this->created_date_time = $created_date_time; return $this; }
     public function getCreatedDateTime($format = 'Y-m-d H:i:s') { $d = new DateTime($this->created_date_time); return $d->format($format); }
 
+    public function setSearchText($search_text) { $this->search_text = $search_text; return $this; }
+
     //// ------------------------------ action function
 
     public function create() {
@@ -71,6 +75,7 @@ class ArticleM extends BusinessModel {
         $query .=   "`member` as `m` ";
 		$query .= "WHERE ";
         $query .=	"`a`.`member_idx`=`m`.`idx` AND ";
+        if ($this->search_text!=null) { $query .= " (`a`.`title`  LIKE ? || `a`.`content` LIKE ?) AND "; }
         if ($this->category_idx!=null) { $query .= "`a`.`category_idx`=? AND "; }
         if ($this->member_idx!=null) { $query .= "`a`.`member_idx`=? AND "; }
 		$query .=	"`a`.`status`=? ";
@@ -79,10 +84,12 @@ class ArticleM extends BusinessModel {
         $status = 1;
 
 		$fmt = "";
+        if ($this->search_text!=null) { $fmt .= "ss"; }
         if ($this->category_idx!=null) { $fmt .= "i"; }
         if ($this->member_idx!=null) { $fmt .= "i"; }
 
 		$params = array($fmt."i");
+        if ($this->search_text!=null) { $s = '%'.$this->search_text.'%'; $params[] = &$s; $params[] = &$s; }
         if ($this->category_idx!=null) { $params[] = &$this->category_idx; }
         if ($this->member_idx!=null) { $params[] = &$this->member_idx; }
 		$params[] = &$status;
