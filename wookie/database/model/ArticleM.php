@@ -49,9 +49,9 @@ class ArticleM extends BusinessModel {
 
     public function create() {
 
-        $data   = array( 1, $this->category_idx, $this->title, $this->content, 0, $this->release_date_time, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'), 1);
-        $field  = array('member_idx', 'category_idx', 'title', 'content', 'views', 'release_date_time', 'updated_date_time', 'created_date_time', 'status');
-        $fmt    = 'iississsi';
+        $data   = array( 1, $this->category_idx, $this->title, $this->content, 0, $this->release_date_time, date('Y-m-d H:i:s'));
+        $field  = array('member_idx', 'category_idx', 'title', 'content', 'views', 'release_date_time', 'updated_date_time');
+        $fmt    = 'iississ';
 
         return $this->create_omr('article', $field, $data, $fmt);
     }
