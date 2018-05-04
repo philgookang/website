@@ -1,36 +1,40 @@
-<aside class="col-md-4 blog-sidebar">
-  <div class="p-3 mb-3 bg-light rounded">
-    <h4 class="font-italic">About</h4>
-    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-  </div>
+    <aside class="col-md-4 blog-sidebar">
+        <div class="p-3 mb-3 bg-light rounded">
+            <h4 class="font-italic">About</h4>
+            <p class="mb-0">My personal blog</p>
+        </div>
 
-  <div class="p-3">
-    <h4 class="font-italic">Archives</h4>
-    <ol class="list-unstyled mb-0">
-      <li><a href="#">March 2014</a></li>
-      <li><a href="#">February 2014</a></li>
-      <li><a href="#">January 2014</a></li>
-      <li><a href="#">December 2013</a></li>
-      <li><a href="#">November 2013</a></li>
-      <li><a href="#">October 2013</a></li>
-      <li><a href="#">September 2013</a></li>
-      <li><a href="#">August 2013</a></li>
-      <li><a href="#">July 2013</a></li>
-      <li><a href="#">June 2013</a></li>
-      <li><a href="#">May 2013</a></li>
-      <li><a href="#">April 2013</a></li>
-    </ol>
-  </div>
+        <div class="p-3">
+            <h4 class="font-italic">Tools</h4>
+            <ol class="list-unstyled mb-0">
+                <li>
+                    <a href="http://comparedb.philgookang.com/">Compare DB</a>
+                </li>
+                <li>
+                    <a href="http://investment.philgookang.com/">Investment</a>
+                </li>
+                <li>
+                    <a href="http://patty.philgookang.com/status.php">Stock Analyser</a>
+                </li>
+            </ol>
+        </div>
 
-  <div class="p-3">
-    <h4 class="font-italic">Elsewhere</h4>
-    <ol class="list-unstyled">
-      <li><a href="http://github.com/philgookang" target="_blank">GitHub</a></li>
-      <li><a href="http://facebook.com/philgookang" target="_blank">Facebook</a></li>
-      <li><a href="http://resume.philgookang.com/" target="_blank">Résumé</a></li>
-      <li><a href="http://project.philgookang.com/" target="_blank">Project</a></li>
-    </ol>
-  </div>
-</aside>
-
+        <div class="p-3">
+            <h4 class="font-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+                <li>
+                    <a href="http://github.com/philgookang" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href="http://facebook.com/philgookang" target="_blank">Facebook</a>
+                </li>
+                <li>
+                    <a href="http://resume.philgookang.com/" target="_blank">Résumé</a>
+                </li>
+                <li>
+                    <a href="http://project.philgookang.com/" target="_blank">Project</a>
+                </li>
+            </ol>
+        </div>
+    </aside>
 </div>

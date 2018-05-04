@@ -24,6 +24,25 @@
         </div>
         <!--/.col-lg-8-->
         <div class="col-lg-4">
+            <h5>Category</h5>
+            <div class="form-group">
+                <select class="form-control" name="category_idx" id="article-category">
+                    <?php foreach($category_list as $category) { ?>
+                        <option value="<?php echo $category->getIdx(); ?>"
+                                <?php
+                                    if ($category->getIdx() == $article->getCategoryIdx()) {
+                                        echo 'selected';
+                                    }
+                                ?>
+                            >
+                            <?php echo ucfirst($category->getName()); ?>
+                        </option>
+                    <?php } ?>
+                </select>
+                <br />
+            </div>
+            <!--/.form-group-->
+
             <h5>Publish</h5>
             <div class="form-group">
                 <label for="article-release-date-time">Relase Date Time</label>

@@ -5,6 +5,7 @@ class ArticleM extends BusinessModel {
     // public variables
     public $idx                     = null;
     public $member_idx              = null;
+    public $category_idx            = null;
     public $title                   = null;
     public $content                 = null;
     public $release_date_time       = null;
@@ -26,6 +27,9 @@ class ArticleM extends BusinessModel {
     public function setMemberIdx( $member_idx ) { $this->member_idx = $member_idx; return $this; }
     public function getMemberIdx() { return $this->member_idx; }
 
+    public function setCategoryIdx( $category_idx ) { $this->category_idx = $category_idx; return $this; }
+    public function getCategoryIdx() { return $this->category_idx; }
+
     public function setTitle( $title ) { $this->title = $title; return $this; }
     public function getTitle($check = false) { if ($check && !isset($this->title)) { return ''; } return $this->title; }
 
@@ -45,9 +49,9 @@ class ArticleM extends BusinessModel {
 
     public function create() {
 
-        $data   = array( 1, $this->title, $this->content, 0, $this->release_date_time, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'), 1);
-        $field  = array('member_idx', 'title', 'content', 'views', 'release_date_time', 'updated_date_time', 'created_date_time', 'status');
-        $fmt    = 'ississsi';
+        $data   = array( 1, $this->category_idx, $this->title, $this->content, 0, $this->release_date_time, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'), 1);
+        $field  = array('member_idx', 'category_idx', 'title', 'content', 'views', 'release_date_time', 'updated_date_time', 'created_date_time', 'status');
+        $fmt    = 'iississsi';
 
         return $this->create_omr('article', $field, $data, $fmt);
     }
@@ -58,6 +62,7 @@ class ArticleM extends BusinessModel {
         $query .=   " `a`.`idx`, ";
         $query .=   " `m`.`nickname`, ";
         $query .=   " `a`.`title`, ";
+        $query .=   " `a`.`content`, ";
         $query .=   " `a`.`views`, ";
         $query .=   " `a`.`release_date_time`, ";
         $query .=   " `a`.`updated_date_time` ";
@@ -66,6 +71,7 @@ class ArticleM extends BusinessModel {
         $query .=   "`member` as `m` ";
 		$query .= "WHERE ";
         $query .=	"`a`.`member_idx`=`m`.`idx` AND ";
+        if ($this->category_idx!=null) { $query .= "`a`.`category_idx`=? AND "; }
         if ($this->member_idx!=null) { $query .= "`a`.`member_idx`=? AND "; }
 		$query .=	"`a`.`status`=? ";
 		$query .=	"ORDER BY `a`.`idx` desc ";
@@ -73,14 +79,12 @@ class ArticleM extends BusinessModel {
         $status = 1;
 
 		$fmt = "";
-        if ($this->member_idx!=null) {
-            $fmt .= "i";
-        }
+        if ($this->category_idx!=null) { $fmt .= "i"; }
+        if ($this->member_idx!=null) { $fmt .= "i"; }
 
 		$params = array($fmt."i");
-        if ($this->member_idx!=null) {
-            $params[] = &$this->member_idx;
-        }
+        if ($this->category_idx!=null) { $params[] = &$this->category_idx; }
+        if ($this->member_idx!=null) { $params[] = &$this->member_idx; }
 		$params[] = &$status;
 
         return $this->postman->returnDataList( $query, $params );
@@ -90,6 +94,7 @@ class ArticleM extends BusinessModel {
 
         $query	= "SELECT ";
         $query .=   " `a`.`idx`, ";
+        $query .=   " `a`.`category_idx`, ";
         $query .=   " `a`.`title`, ";
         $query .=   " `a`.`content`, ";
         $query .=   " `a`.`release_date_time` ";
@@ -119,6 +124,7 @@ class ArticleM extends BusinessModel {
         $query	= "UPDATE ";
         $query .=   "`article` ";
         $query .= "SET ";
+        $query .=	"`category_idx`=?, ";
         $query .=	"`title`=?, ";
         $query .=	"`content`=?, ";
         $query .=	"`release_date_time`=?, ";
@@ -129,7 +135,7 @@ class ArticleM extends BusinessModel {
         $updated_date_time = date('Y-m-d H:i:s');
 
         $this->postman->execute($query, array(
-            'ssssi', &$this->title, &$this->content, &$this->release_date_time, &$this->updated_date_time, &$this->idx
+            'issssi', &$this->category_idx, &$this->title, &$this->content, &$this->release_date_time, &$this->updated_date_time, &$this->idx
         ));
     }
 }

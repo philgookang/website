@@ -16,9 +16,11 @@ class Member extends CI_Controller {
 
     public function aedit($idx = '0') {
 
+		$category_list = CategoryM::new()->getList();
         $article = ArticleM::new()->setIdx($idx)->setMemberIdx(1)->get();
 
         $data = array();
+		$data['category_list'] = $category_list;
         $data['article'] = $article;
 
 		$this->load->view('website/template/head');

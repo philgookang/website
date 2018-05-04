@@ -5,6 +5,7 @@ class Member extends CI_Controller {
 	public function asave() {
 
         $idx            = (is_numeric($this->input->post('idx'))) ? $this->input->post('idx') : -1;
+		$cate_idx       = $this->input->post('category_idx');
         $title          = $this->input->post('title');
         $content        = $this->input->post('content');
         $r_date_time    = $this->input->post('release_date_time');
@@ -12,6 +13,7 @@ class Member extends CI_Controller {
         $article = ArticleM::new()
                     ->setIdx($idx)
                     ->setMemberIdx(1)
+					->setCategoryIdx($cate_idx)
                     ->setTitle($title)
                     ->setContent($content)
                     ->setReleaseDateTime($r_date_time)
