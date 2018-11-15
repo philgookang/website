@@ -45,7 +45,7 @@ class CategoryM extends BusinessModel {
         $query .=   "`category` ";
 		$query .= "WHERE ";
 		$query .=	"`status`=? ";
-		$query .=	"ORDER BY `sort_idx` desc ";
+		$query .=	"ORDER BY `sort_idx` asc ";
 
         $status = 1;
 
