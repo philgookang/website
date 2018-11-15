@@ -11,10 +11,19 @@
                     <a href="http://comparedb.philgookang.com/">Compare DB</a>
                 </li>
                 <li>
-                    <a href="http://investment.philgookang.com/">Investment</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1uihbjSFTDssb4xmYCPt-n01a9iI0E6T_O4ex2WSiK3o/edit?usp=sharing">Investment</a>
                 </li>
                 <li>
-                    <a href="http://patty.philgookang.com/status.php">Stock Analyser</a>
+                    <a href="http://patty.philgookang.com/">Stock Analyser</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="p-3">
+            <h4 class="font-italic">Services</h4>
+            <ol class="list-unstyled">
+                <li>
+                    <a href="http://font.philgookang.com" target="_blank">Font</a>
                 </li>
             </ol>
         </div>
