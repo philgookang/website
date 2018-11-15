@@ -3,16 +3,26 @@
 
         <h3>Login</h3>
 
-        <form method="POST" action="/action/member/asave/">
+        <form method="POST" action="/action/login/attempt/">
+
+            <?php if (isset($_GET['attempt']) && ($_GET['attempt'] == 'failed')) { ?>
+
+                <br>
+                Login failed!
+                <br>
+                <br>
+
+            <?php } ?>
+
             <div class="form-group">
-                <label for="article-title">Email</label>
+                <label for="email">Email</label>
                 <input type="email" class="form-control" name="email" value=""/>
             </div>
             <!--/.form-group-->
 
             <div class="form-group">
-                <label for="article-content">Password</label>
-                <input type="email" class="form-control" name="password" value=""/>
+                <label for="pasword">Password</label>
+                <input type="password" class="form-control" name="password" value=""/>
             </div>
             <!--/.form-group-->
 
