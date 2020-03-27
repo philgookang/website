@@ -5,6 +5,15 @@
         </div>
 
         <div class="p-3">
+            <h4 class="font-italic">Hobby</h4>
+            <ol class="list-unstyled mb-0">
+                <li>
+                    <a href="https://docs.google.com/spreadsheets/d/1MkiMEz9bevJoF5P3VgI_8HhPSVnxUIn8t1fDUf5r2l0/edit?usp=sharing">House Planting</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="p-3">
             <h4 class="font-italic">Tools</h4>
             <ol class="list-unstyled mb-0">
                 <li>
@@ -12,9 +21,6 @@
                 </li>
                 <li>
                     <a href="https://docs.google.com/spreadsheets/d/1uihbjSFTDssb4xmYCPt-n01a9iI0E6T_O4ex2WSiK3o/edit?usp=sharing">Investment</a>
-                </li>
-                <li>
-                    <a href="http://patty.philgookang.com/">Stock Analyser</a>
                 </li>
             </ol>
         </div>
